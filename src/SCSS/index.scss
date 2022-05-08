@@ -1,0 +1,237 @@
+@import "global";
+@import "variables";
+
+.wrapper-title {
+    margin: 1rem 0;
+    text-align: center;
+
+    h1 {
+        font-family: $koulen;
+        font-size: clamp(1.5rem, 7vw, 3rem);
+        line-height: 1.2;
+        color: $white;
+    }
+
+    p {
+        font-family: $lato;
+        color: rgba(255, 255, 255, 0.6);
+    }
+}
+
+#watermark {
+    color: $white;
+    right: 50%;
+    font-family: $lato;
+    text-align: center;
+
+    a {
+        color: $white;
+        opacity: 0.5;
+
+        &:hover {
+            opacity: 1;
+            text-decoration: none;
+        }
+    }
+
+    p {
+        margin: 0.5rem 0;
+    }
+}
+
+#playerCard {
+    width: 350px;
+    height: fit-content;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    margin: 2rem;
+    overflow: hidden;
+    background: $white;
+    transition: 0.2s ease;
+    font-family: $koulen;
+    z-index: 2;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.playerCard_name_pos, .playerCard_ht_wt {
+    margin: 0.5rem 1rem;
+}
+
+.playerCard_ht_wt {
+    display: flex;
+    flex-direction: column;
+}
+
+#playerCard_team {
+    margin: 0.5rem 1rem;
+}
+
+#playerCard_btn {
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    color: $blue;
+    border-top: 1px solid rgba(51, 51, 51, 0.5);
+    transition: 0.2s;
+    font-family: $lato;
+    font-weight: 900;
+
+    &:hover {
+        background: $blue;
+        color: $white;
+        border: 1px solid transparent;
+    }
+}
+
+.sub-title {
+    color: $blue;
+}
+
+.cards {
+    width: 95%;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 5rem 0;
+}
+
+#input {
+    width: 250px;
+    height: 30px;
+    padding: 0.5rem;
+    border: 1px solid $white;
+    font-family: $lato;
+}
+
+#btnSearch {
+    width: 100px;
+    height: 30px;
+    background: $white;
+    border: 1px solid $white;
+    color: $blue;
+    cursor: pointer;
+    font-family: $lato;
+    transition: 0.2s;
+    font-weight: 900;
+
+    &:hover {
+        background: transparent;
+        color: $white;
+    }
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.table-wrapper {
+    background-color: $white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: scroll;
+    max-width: 80vw;
+    margin: 0 1rem;
+
+    h4 {
+        margin: 1rem;
+        font-family: $lato;
+    }
+
+    &::after {
+        content: "SEASON AVERAGE";
+        color: $blue;
+        font-family: $lato;
+        border: 1px solid $white;
+        padding: 0.2rem;
+        background-color: $white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-98%);
+        display: none;
+    }
+}
+
+#table {
+    text-align: center;
+    margin: 0 1rem 1rem;
+
+    th {
+        border-top: 1px solid $border-lines;
+        text-transform: uppercase;
+        font-family: $lato;
+        color: $blue;
+    }
+
+    td {
+        font-family: $lato;
+    }
+
+    th, td {
+        border-bottom: 1px solid $border-lines;
+        border-right: 1px solid $border-lines;
+        padding: 1rem;
+
+        &:first-child {
+            border-left: 1px solid $border-lines;
+        }
+    }
+}
+
+
+.x-icon {
+    position: absolute;
+    cursor: pointer;
+    background: $white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 2rem;
+    right: 2rem;
+    border: 1px solid $white;
+    transition: 0.2s;
+
+    .fa-xmark {
+        color: $blue;
+        font-size: 2.2rem;
+    }
+
+    &:hover {
+        background: $blue;
+
+        .fa-xmark {
+            color: $white;
+        }
+    }
+    
+}

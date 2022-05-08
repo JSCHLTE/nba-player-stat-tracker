@@ -1,0 +1,16 @@
+@import "variables";
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $blue;
+    overflow-x: hidden;
+}
+
+.toggleOverflow{
+    overflow: hidden !important;
+}
