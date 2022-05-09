@@ -67,7 +67,8 @@ form.addEventListener('submit', (e) => {
                const newTable = document.createElement('div');
                xIcon.addEventListener('click', closeOverlay);
                newTable.classList.add('table-wrapper');
-               newTable.innerHTML = `<h4>${data.data[0].first_name} ${data.data[0].last_name} | ${playerPos}</h4>
+               window.scrollTo(0,0)
+               newTable.innerHTML = `<h4>${data.data[0].first_name} ${data.data[0].last_name} | ${playerPos} | ${data1.data[0].season} Season</h4>
                <table id="table" cellspacing="0" cellpadding="0">
                    <tr id="table_row">
                        <th>MIN</th>

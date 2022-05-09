@@ -108,17 +108,24 @@
     margin: 5rem 0;
 }
 
+#form {
+    align-items: center;
+    display: flex;
+}
+
 #input {
     width: 250px;
-    height: 30px;
+    height: fit-content;
     padding: 0.5rem;
     border: 1px solid $white;
     font-family: $lato;
+    font-size: 1em;
 }
 
 #btnSearch {
     width: 100px;
-    height: 30px;
+    height: 37px;
+    margin-left: 0.5rem;
     background: $white;
     border: 1px solid $white;
     color: $blue;
