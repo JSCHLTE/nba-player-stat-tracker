@@ -101,6 +101,8 @@ form.addEventListener('submit', (e) => {
                </table>`
                document.body.appendChild(newTable);
 
+               overlay.addEventListener('click', closeOverlay);
+
                function closeOverlay() {
                 overlay.style.display = 'none'
                 document.body.classList.remove('toggleOverflow')
