@@ -35,7 +35,7 @@ form.addEventListener('submit', (e) => {
         if(playerHt === null) {
             playerHt = `Not Found`;
         } else {
-            playerHt = `${data.data[0].height_feet}"${data.data[0].height_inches}`
+            playerHt = `${data.data[0].height_feet}'${data.data[0].height_inches}"`
         }
         if(playerWT === null) {
             playerWT = `Not Found`;
@@ -68,7 +68,7 @@ form.addEventListener('submit', (e) => {
                xIcon.addEventListener('click', closeOverlay);
                newTable.classList.add('table-wrapper');
                window.scrollTo(0,0)
-               newTable.innerHTML = `<h4>${data.data[0].first_name} ${data.data[0].last_name} | ${playerPos} | ${data1.data[0].season} Season</h4>
+               newTable.innerHTML = `<h4>${data.data[0].first_name} ${data.data[0].last_name} | ${playerPos} | ${data1.data[0].season}-${data1.data[0].season + 1} Season</h4>
                <table id="table" cellspacing="0" cellpadding="0">
                    <tr id="table_row">
                        <th>MIN</th>
