@@ -99,16 +99,10 @@ body {
   border: 1px solid transparent;
   color: #17408c;
   border-top: 1px solid rgba(51, 51, 51, 0.5);
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
   font-family: "Lato", sans-serif;
   font-weight: 900;
-}
-
-#playerCard_btn:hover {
-  background: #17408c;
-  color: #FFFDFA;
-  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
 }
 
 .sub-title {
@@ -164,6 +158,11 @@ body {
   font-size: 1em;
 }
 
+#input:focus, #input:hover {
+  outline: none;
+  border: 1px solid #c9082c;
+}
+
 #btnSearch {
   width: 100px;
   height: 37px;
@@ -173,14 +172,10 @@ body {
   color: #17408c;
   cursor: pointer;
   font-family: "Lato", sans-serif;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
   font-weight: 900;
-}
-
-#btnSearch:hover {
-  background: transparent;
-  color: #FFFDFA;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #FFFDFA;
 }
 
 .overlay {
@@ -283,8 +278,6 @@ body {
   top: 2rem;
   right: 2rem;
   border: 1px solid #FFFDFA;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
 }
 
 .x-icon .fa-xmark {
@@ -298,5 +291,51 @@ body {
 
 .x-icon:hover .fa-xmark {
   color: #FFFDFA;
+}
+
+.effect {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+  border-radius: 50%;
+  -webkit-animation: animate 1s linear infinite;
+          animation: animate 1s linear infinite;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
+
+@keyframes animate {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
+
+.newAlert {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  background: #FFFDFA;
+  font-family: "Koulen", sans-serif;
+  top: 1rem;
+  left: 1rem;
+  border: 2px solid #c9082c;
 }
 /*# sourceMappingURL=index.css.map */

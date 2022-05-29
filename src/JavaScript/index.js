@@ -14,9 +14,8 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
     
     if(input.value.trim() == "") {
-        alert(`Please enter a player.`)
-        input.value = '';
-        input.focus();
+        let uhoh = `Please enter a player name.`
+        throwError(uhoh)
         return;
     }
 
@@ -55,9 +54,20 @@ form.addEventListener('submit', (e) => {
         </div>
         <hr>
         <p id="playerCard_team"><span class="sub-title">TEAM:</span> ${playerTeam}</p>
-        <button id="playerCard_btn">SEASON AVERAGE</button>`
+        <button class="ripple" id="playerCard_btn">SEASON AVERAGE</button>`
         const statBtn = newCard.querySelector('#playerCard_btn')
-
+        statBtn.addEventListener('click', (e) => {
+            let x = e.offsetX;
+            let y = e.offsetY;
+            const newSpan = document.createElement('span');
+            newSpan.classList.add(`effect`);
+            newSpan.style.top = `${e.offsetY}px`
+            newSpan.style.left = `${e.offsetX}px`
+            statBtn.appendChild(newSpan)
+            setTimeout(() => {
+                newSpan.remove();
+            }, 1000)
+        });
         statBtn.addEventListener('click', () => {
             fetch(`${api.url2}?player_ids[]=${data.data[0].id}`)
             .then(res2 => res2.json())
@@ -100,7 +110,6 @@ form.addEventListener('submit', (e) => {
                    </tr>
                </table>`
                document.body.appendChild(newTable);
-
                overlay.addEventListener('click', closeOverlay);
 
                function closeOverlay() {
@@ -110,7 +119,8 @@ form.addEventListener('submit', (e) => {
                }
             })
             .catch(error => {
-                alert(`${data.data[0].first_name} was inactive during this season.`);
+                let uhoh = `${data.data[0].first_name} was inactive during this season.`
+                throwError(uhoh)
                 overlay.style.display = 'none'
                 document.body.classList.remove('toggleOverflow')
                 newTable.remove();
@@ -122,6 +132,19 @@ form.addEventListener('submit', (e) => {
         input.focus();
     })
     .catch(error => {
-        alert(`API could not find " ${input.value} ".`);
+        let uhoh = `API could not find " ${input.value} ".`
+        throwError(uhoh)
     })
 })
+
+
+function throwError(errVar){
+    const newAlert = document.createElement('span');
+    newAlert.innerHTML = `${errVar}`;
+    newAlert.classList.add(`newAlert`);
+    document.body.appendChild(newAlert);
+
+    setTimeout(() => {
+        newAlert.remove();
+    }, 3000)
+}

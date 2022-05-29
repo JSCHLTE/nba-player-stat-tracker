@@ -76,15 +76,10 @@
     border: 1px solid transparent;
     color: $blue;
     border-top: 1px solid rgba(51, 51, 51, 0.5);
-    transition: 0.2s;
     font-family: $lato;
     font-weight: 900;
-
-    &:hover {
-        background: $blue;
-        color: $white;
-        border: 1px solid transparent;
-    }
+    position: relative;
+    overflow: hidden;
 }
 
 .sub-title {
@@ -120,6 +115,11 @@
     border: 1px solid $white;
     font-family: $lato;
     font-size: 1em;
+
+    &:focus, &:hover {
+        outline: none;
+        border: 1px solid $red;
+    }
 }
 
 #btnSearch {
@@ -131,13 +131,10 @@
     color: $blue;
     cursor: pointer;
     font-family: $lato;
-    transition: 0.2s;
     font-weight: 900;
-
-    &:hover {
-        background: transparent;
-        color: $white;
-    }
+    position: relative;
+    overflow: hidden;
+    border: 1px solid $white;
 }
 
 .overlay {
@@ -226,7 +223,6 @@
     top: 2rem;
     right: 2rem;
     border: 1px solid $white;
-    transition: 0.2s;
 
     .fa-xmark {
         color: $blue;
@@ -241,4 +237,36 @@
         }
     }
     
+}
+
+.effect {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3); //ripple color
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+}
+
+.newAlert {
+    position: absolute;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    background: $white;
+    font-family: $koulen;
+    top: 1rem;
+    left: 1rem;
+    border: 2px solid $red;
 }
